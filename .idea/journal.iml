@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$" />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://D:/Dwimperl/perl/site/lib" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://D:/Dwimperl/perl/site/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://D:/Dwimperl/perl/vendor/lib" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://D:/Dwimperl/perl/vendor/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://D:/Dwimperl/perl/lib" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://D:/Dwimperl/perl/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+  </component>
+</module>

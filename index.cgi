@@ -42,7 +42,7 @@ if($page eq 'home')
 {
 	my $app = Controllers::Home->new($UMod, $AMod, $View);
 	$app->run();
-	print $app->display();
+	   print $app->display();
 }
 if($page eq 'Register')
 {
@@ -69,10 +69,3 @@ if($page eq 'Profile')
 	print $app->display();
 }
 #created by user7
-
-
-
-
-
-
-

@@ -27,7 +27,6 @@ sub getUserArticles
 #############
 ##created by user8
 
-
 #############
 ##created by user7
 #gets article by Id
@@ -83,7 +82,6 @@ sub deleteArticle
 #############
 ##created by user7
 #
-#
 #edits an article by Id
 sub editArticle
 {
@@ -99,6 +97,9 @@ sub editArticle
         return 0;
     }
 }
+
+
+
 
 #__construct
 #recives an Db object

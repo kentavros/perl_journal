@@ -14,7 +14,7 @@ ReadParse();
 sub display
 {
 	my ($self) = shift;
-	return $self->{'UModel'}->getHeader()."\n\n".$self->{'View'}->getHtml();
+	return $self->{'UModel'}->printHeads()."\n\n".$self->{'View'}->getHtml();
 }
 
 #main logic function

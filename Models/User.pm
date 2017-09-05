@@ -9,14 +9,8 @@ use File::Basename qw(dirname);
 use lib dirname(__FILE__).'/../Utils/';
 use Utils::CGI::Session;
 
-#
-#
-#returns headers from CGI object
-sub getHeader
-{
-	my $self = shift;
-	return $self->{'cgi'}->{'header'};
-}
+
+
 
 #
 #checks if the sessionID cookie exists,
@@ -103,8 +97,7 @@ sub logIn
 	}
 }
 
-#
-# recieving link to POST data hash
+#recieving link to POST data hash
 #makes md5 hashing on password input
 #adds user to db
 #perhaps should be a several functions for this action
@@ -138,6 +131,7 @@ sub checkUserEditForm
 
 }
 
+#
 #recieving input Name, User Id
 #updates user name in db
 sub editName
@@ -170,6 +164,7 @@ sub editPass
 	return 0;
 }
 
+#
 #recieving an email input field
 #check in db if this email already exists
 #
@@ -188,6 +183,7 @@ sub isEmailExists
         return 0;
     }
 }
+
 
 #
 #recieving input post data
@@ -226,7 +222,18 @@ sub checkLogForm
 
 }
 
+
+#returns headers from CGI object
+# sub getHeader
+sub printHeads
+{
+	my $self = shift;
+	my $cookie = $self->{'cgi'}->cookie(SID => $self->{'cgi'}->{'sid'});
+	return $self->{'cgi'}->header(-type=> 'text/html', -charset=>'utf-8', -cookie=>$cookie);
+}
+
 #__construct
+#
 #
 sub new
 {
@@ -234,20 +241,20 @@ sub new
 
     my $cgi = CGI->new;
     my $sid = $cgi->cookie("SID");
+	my $cookie;
+
     if ($sid ne '')
     {
         my $sess = new CGI::Session(undef, $sid, {Directory=>'tmp'});
-        $cgi->header(-type=> 'text/html', -charset=>'utf-8');
+		$cgi->{'sid'} = $sess->id;
     }
     else
     {
         my $sess = CGI::Session->new("driver:file", undef, {Directory=>'tmp'})
             or die CGI::Session->errstr();
         $sess->name('SID');
-        my $cookie = $cgi->cookie(SID => $sess->id);
-        print $cgi->header( -cookie=>$cookie );
+		$cgi->{'sid'} = $sess->id;
     }
-
 
     return bless {'Db'=> $_[1],'validator'=> $_[2], 'cgi'=> $cgi}; $class;
 }
